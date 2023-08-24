@@ -6,10 +6,8 @@ import java.util.Random;
 public class Corrida {
     static List<Integer> resultados = new ArrayList<>();
     static int indiceVencedor = 0;
-    
     public static void main(String[] args) {
         int threadsParadas = 0;
-        
         List<Thread> threads = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
             Thread thread = new Thread(getRunnable(i));
@@ -40,19 +38,15 @@ public class Corrida {
     public static int realizarCorrida(int idDaThread) {
         int posicaoAtual = 0;
         int totalPassos = 0;
-
         System.out.println("Thread " + idDaThread + " - iniciando");
-
         while (posicaoAtual < 50) {
             int passos = gerarNumeroAleatorio();
             posicaoAtual += passos;
             totalPassos += passos;
-
             System.out.println("Vez da Thread " + idDaThread);
             System.out.println("Numero sorteado: " + passos);
             System.out.println("Thread " + idDaThread + " andou " + passos + " casas");
             System.out.println("Posição atual da Thread " + idDaThread + ": " + posicaoAtual);
-
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {

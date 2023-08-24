@@ -26,7 +26,6 @@ public class WikiMulti {
                 e.printStackTrace();
             }
         }
-
         LocalTime fim = LocalTime.now();
         System.out.println("Tempo de execução: " + Duration.between(inicio, fim).toMillis() + " ms");
     }
@@ -35,7 +34,6 @@ public class WikiMulti {
         try {
             conn = (HttpURLConnection) new URL(url).openConnection();
             conn.setRequestMethod("GET");
-
             if (conn.getResponseCode() == 200) {
                 return url + " - existe";
             } else if (conn.getResponseCode() == 404) {
@@ -51,7 +49,6 @@ public class WikiMulti {
             return url + " - erro: " + e.getMessage();
         }
     }
-    
     private static Runnable getRunnable(int i){
         return new Runnable() {
             @Override
